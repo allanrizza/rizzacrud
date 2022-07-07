@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "RIZZA_CATEGORIA")
@@ -19,4 +20,7 @@ public class Categoria {
     @Column(name = "CATEGORIA")
     @NotNull
     private String categoria;
+
+    //@OneToMany()
+    //private List<Manga> mangas;
 }

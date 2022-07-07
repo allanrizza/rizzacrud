@@ -14,8 +14,6 @@ import java.util.Date;
 @Setter
 public class Manga {
 
-    @Autowired
-    CategoriaRepository categoriaRepository;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,6 +26,7 @@ public class Manga {
     @Column(name = "ANO_LANCAMENTO")
     private Date anoDeLancamento;
 
-    @Column(name = "CATEGORIA_ID")
-    private Long categoriaId;
+    @JoinColumn(name = "CATEGORIA_ID", referencedColumnName = "ID")
+    @ManyToOne(targetEntity = Categoria.class, cascade = CascadeType.ALL)
+    private Categoria categoria;
 }
